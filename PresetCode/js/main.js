@@ -36,6 +36,7 @@ playButton.addEventListener('click', () => {
   recordedVideo.src = null;
   recordedVideo.srcObject = null;
   recordedVideo.src = window.URL.createObjectURL(superBuffer);
+  localStorage.setItem("blobURL",(recordedVideo.src));
   recordedVideo.controls = true;
   recordedVideo.play();
 });
@@ -47,7 +48,8 @@ downloadButton.addEventListener('click', () => {
   const a = document.createElement('a');
   a.style.display = 'none';
   a.href = url;
-  a.download = 'test.webm';
+  localStorage.setItem("blobURL",(recordedVideo.src));
+  a.download = 'trial.webm';
   document.body.appendChild(a);
   a.click();
   setTimeout(() => {
@@ -144,5 +146,5 @@ document.querySelector('button#start').addEventListener('click', async () => {
   setTimeout(event => {
     console.log("starting start");
     recordButton.click();
-  }, 500);
+  }, 50);
 });
