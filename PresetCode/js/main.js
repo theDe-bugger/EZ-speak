@@ -36,9 +36,13 @@ playButton.addEventListener('click', () => {
   recordedVideo.src = null;
   recordedVideo.srcObject = null;
   recordedVideo.src = window.URL.createObjectURL(superBuffer);
-  localStorage.setItem("blobURL",(recordedVideo.src));
   recordedVideo.controls = true;
   recordedVideo.play();
+  blobToDataURL(superBuffer, function(dataurl){
+    localStorage.setItem("data", dataurl);
+    uploadVideo(dataurl);
+  });
+  
 });
 
 const downloadButton = document.querySelector('button#download');
@@ -48,8 +52,11 @@ downloadButton.addEventListener('click', () => {
   const a = document.createElement('a');
   a.style.display = 'none';
   a.href = url;
-  localStorage.setItem("blobURL",(recordedVideo.src));
   a.download = 'trial.webm';
+  blobToDataURL(superBuffer, function(dataurl){
+    localStorage.setItem("data", dataurl);
+    uploadVideo(dataurl);
+  });
   document.body.appendChild(a);
   a.click();
   setTimeout(() => {
@@ -148,3 +155,25 @@ document.querySelector('button#start').addEventListener('click', async () => {
     recordButton.click();
   }, 50);
 });
+
+function uploadVideo(message){
+  const ref = firebase.storage().ref()
+  const name = 'input-file'
+// Data URL string
+	ref.child(name).putString(message, 'data_url').then(snapshot => snapshot.ref.getDownloadURL())
+  	.then(url=>{
+	var videoLink = localStorage.getItem("videolink");
+  	videoLink = url;
+  	localStorage.setItem("videolink",JSON.stringify(videoLink));
+	  console.log(url);
+  })
+  
+}
+
+//**blob to dataURL**
+function blobToDataURL(blob1, callback) {
+  var a = new FileReader();
+  a.onload = function(e) {callback(e.target.result);}
+  a.readAsDataURL(blob1);
+}
+

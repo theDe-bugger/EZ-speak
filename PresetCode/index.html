@@ -52,5 +52,23 @@
     <script src="js/main.js" async></script>
     <script src="../../../js/lib/ga.js"></script>
 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-storage.js"></script>
+    <script src="js/main.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyC0VfiMMQlGPn1eKA6-qQ2RzV359pCF1g0",
+    authDomain: "hackthenorth-bcd17.firebaseapp.com",
+    projectId: "hackthenorth-bcd17",
+    storageBucket: "hackthenorth-bcd17.appspot.com",
+    messagingSenderId: "431876815986",
+    appId: "1:431876815986:web:d41125444c503204df16eb"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  console.log(firebase);
+</script>
     </body>
 </html>
