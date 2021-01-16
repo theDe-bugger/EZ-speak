@@ -21,3 +21,12 @@ export default {
     browser.end();
   }
 };
+
+function uploadVideo(message){
+  var file = message // use the Blob or File API
+  const ref = firebase.storage().ref()
+  ref.child("input-file").put(file).then(snapshot => snapshot.ref.getDownloadURL()).then(url=>{
+    console.log('Uploaded a blob or file!');
+    localStorage.setItem("videoLink", url)
+  })
+}

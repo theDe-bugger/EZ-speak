@@ -38,11 +38,7 @@ playButton.addEventListener('click', () => {
   recordedVideo.src = window.URL.createObjectURL(superBuffer);
   recordedVideo.controls = true;
   recordedVideo.play();
-      blobToDataURL(superBuffer, function(dataurl){
-      uploadVideo(dataurl);
-    });
-  
-  
+  uploadVideo(superBuffer);
 });
 
 const downloadButton = document.querySelector('button#download');
@@ -53,10 +49,7 @@ downloadButton.addEventListener('click', () => {
   a.style.display = 'none';
   a.href = url;
   a.download = 'trial.webm';
-  blobToDataURL(superBuffer, function(dataurl){
-    localStorage.setItem("data", dataurl);
-    uploadVideo(dataurl);
-  });
+  uploadVideo(blob);
   document.body.appendChild(a);
   a.click();
   setTimeout(() => {
@@ -157,23 +150,10 @@ document.querySelector('button#start').addEventListener('click', async () => {
 });
 
 function uploadVideo(message){
+  var file = message // use the Blob or File API
   const ref = firebase.storage().ref()
-  const name = 'input-file'
-// Data URL string
-	ref.child(name).putString(message, 'data_url').then(snapshot => snapshot.ref.getDownloadURL())
-  	.then(url=>{
-	var videoLink = localStorage.getItem("videolink");
-  	videoLink = url;
-  	localStorage.setItem("videolink",JSON.stringify(videoLink));
-	  console.log(url);
+  ref.child("input-file").put(file).then(snapshot => snapshot.ref.getDownloadURL()).then(url=>{
+    console.log('Uploaded a blob or file!');
+    localStorage.setItem("videoLink", url)
   })
-  
 }
-
-//**blob to dataURL**
-function blobToDataURL(blob1, callback) {
-  var a = new FileReader();
-  a.onload = function(e) {callback(e.target.result);}
-  a.readAsDataURL(blob1);
-}
-
