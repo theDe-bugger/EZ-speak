@@ -98,10 +98,17 @@ function startRecording() {
   mediaRecorder.ondataavailable = handleDataAvailable;
   mediaRecorder.start();
   console.log('MediaRecorder started', mediaRecorder);
+
+  setTimeout(event => {
+    console.log("stopping");
+    recordButton.click();
+  }, 60000);
 }
 
 function stopRecording() {
   mediaRecorder.stop();
+  recordButton.disabled = true;
+  recordButton.style.visibility = "hidden";
 }
 
 function handleSuccess(stream) {
@@ -124,10 +131,9 @@ async function init(constraints) {
 }
 
 document.querySelector('button#start').addEventListener('click', async () => {
-  const hasEchoCancellation = document.querySelector('#echoCancellation').checked;
   const constraints = {
     audio: {
-      echoCancellation: {exact: hasEchoCancellation}
+      echoCancellation: {exact: true}
     },
     video: {
       width: 1280, height: 720
@@ -135,4 +141,8 @@ document.querySelector('button#start').addEventListener('click', async () => {
   };
   console.log('Using media constraints:', constraints);
   await init(constraints);
+  setTimeout(event => {
+    console.log("starting start");
+    recordButton.click();
+  }, 500);
 });

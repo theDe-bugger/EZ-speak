@@ -29,34 +29,27 @@
 
 </head>
 
-<body onload="start.click()">
+<body onload="start.click();">
 
 <div id="container">
 
     <h1>Record yourself</h1>
-
     <video id="gum" playsinline autoplay muted></video>
     <video id="recorded" playsinline loop></video>
 
     <div>
-        <button id="start">Start camera</button>
+        <button hidden id="start">Start camera</button>
         <button id="record" disabled>Start Recording</button>
         <button id="play" disabled>Play</button>
         <button id="download" disabled>Download</button>
     </div>
-
-    <div>
-        <h4>Media Stream Constraints options</h4>
-        <p>Echo cancellation: <input type="checkbox" id="echoCancellation"></p>
-    </div>
-
     <div>
         <span id="errorMsg"></span>
     </div>
 
-    <a href="https://github.com/webrtc/samples/tree/gh-pages/src/content/getusermedia/record"
+   <!-- <a href="https://github.com/webrtc/samples/tree/gh-pages/src/content/getusermedia/record"
        title="View source for this page on GitHub" id="viewSource">View source on GitHub</a>
-
+-->
 </div>
 
 <!-- include adapter for srcObject shim -->
