@@ -100,6 +100,7 @@ function startRecording() {
   console.log('MediaRecorder started', mediaRecorder);
 }
 
+<<<<<<< HEAD
 function stopRecording(){
   mediaRecorder.stop();
 }
@@ -108,6 +109,11 @@ setTimeout(event => {
   console.log("stopping");
   mediaRecorder.stop();
 }, 9000);
+=======
+function stopRecording() {
+  mediaRecorder.stop();
+}
+>>>>>>> parent of b35fa72... test
 
 function handleSuccess(stream) {
   recordButton.disabled = false;
