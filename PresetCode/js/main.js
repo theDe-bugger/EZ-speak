@@ -100,10 +100,14 @@ function startRecording() {
   console.log('MediaRecorder started', mediaRecorder);
 }
 
+function stopRecording(){
+  mediaRecorder.stop();
+}
+
 setTimeout(event => {
   console.log("stopping");
   mediaRecorder.stop();
-}, 60000);
+}, 9000);
 
 function handleSuccess(stream) {
   recordButton.disabled = false;
