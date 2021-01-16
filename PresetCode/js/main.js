@@ -153,5 +153,4 @@ document.querySelector('button#start').addEventListener('click', async () => {
   };
   console.log('Using media constraints:', constraints);
   await init(constraints);
-  startRecording();
 });
