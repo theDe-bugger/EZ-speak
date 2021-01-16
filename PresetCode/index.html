@@ -20,37 +20,31 @@
 
     <base target="_blank">
 
-    <title>MediaStream Recording</title>
+    <title>Recording</title>
 
     <link rel="icon" sizes="192x192" href="../../../images/webrtc-icon-192x192.png">
     <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../../../css/main.css">
     <link rel="stylesheet" href="css/main.css">
 
 </head>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<body onload = "start.click()">
-=======
 <body>
->>>>>>> parent of b35fa72... test
-=======
-<body onload = "startRecording()">
->>>>>>> parent of ed04a29... init
-=======
-<body onload = "startRecording()">
->>>>>>> parent of ed04a29... init
 
 <div id="container">
 
-    <p>Video Stuff</p>
+    <h1>Record yourself</h1>
+
+    <p>For more information see the MediaStream Recording API <a
+            href="http://w3c.github.io/mediacapture-record/MediaRecorder.html"
+            title="W3C MediaStream Recording API Editor's Draft">Editor's&nbsp;Draft</a>.</p>
+
     <video id="gum" playsinline autoplay muted></video>
     <video id="recorded" playsinline loop></video>
 
     <div>
         <button id="start">Start camera</button>
-        <!-- <button id="record" disabled>Start Recording</button> -->
+        <button id="record" disabled>Start Recording</button>
         <button id="play" disabled>Play</button>
         <button id="download" disabled>Download</button>
     </div>
@@ -63,6 +57,9 @@
     <div>
         <span id="errorMsg"></span>
     </div>
+
+    <a href="https://github.com/webrtc/samples/tree/gh-pages/src/content/getusermedia/record"
+       title="View source for this page on GitHub" id="viewSource">View source on GitHub</a>
 
 </div>
 
