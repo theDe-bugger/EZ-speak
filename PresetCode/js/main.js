@@ -38,10 +38,11 @@ playButton.addEventListener('click', () => {
   recordedVideo.src = window.URL.createObjectURL(superBuffer);
   recordedVideo.controls = true;
   recordedVideo.play();
-  blobToDataURL(superBuffer, function(dataurl){
-    localStorage.setItem("data", dataurl);
-    uploadVideo(dataurl);
-  });
+      blobToDataURL(superBuffer, function(dataurl){
+      localStorage.setItem("data", dataurl);
+      uploadVideo(dataurl);
+    });
+  
   
 });
 
