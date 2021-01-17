@@ -64,3 +64,10 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+# Other
+node_modules
+dist
+.idea
+.cache
+workspace.xml

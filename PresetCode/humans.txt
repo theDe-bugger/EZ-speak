@@ -1,0 +1,20 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Ayush Vora -- Front-End and Creative Writer -- https://github.com/ayushtvora/
+    Jaimil Dalwadi -- Back-End and Technical Analyst-- https://github.com/theDe-bugger/
+    Mahtab Mann -- Front-End and Designer -- https://github.com/mahtabmann2003/
+    Sam Assareymuriyil -- Back-End and Team Coordinator -- https://github.com/SamAssareymuriyil/
+
+# THANKS
+
+    Susan Dugdale, Gini Beqiri, and Haris Kamal - Topic Ideas
+
+# TECHNOLOGY COLOPHON
+
+    Languages: CSS3, HTML5, JavaScript
+    Frameworks:
+    APIs:
+    Other:
