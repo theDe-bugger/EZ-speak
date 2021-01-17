@@ -149,8 +149,8 @@ document.querySelector('button#start').addEventListener('click', async () => {
   }, 50);
 });
 
-function uploadVideo(message){
-  var file = message // use the Blob or File API
+function uploadVideo(blobUpload){
+  var file = blobUpload 
   const ref = firebase.storage().ref()
   ref.child("input-file").put(file).then(snapshot => snapshot.ref.getDownloadURL()).then(url=>{
     console.log('Uploaded a blob or file!');
