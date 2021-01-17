@@ -25,7 +25,7 @@
 
     </head>
 
-    <body onload="start.click(); action.click()">
+    <body onload="start.click()">
 
     <div id="container">
 
@@ -35,7 +35,6 @@
 
         <div>
             <button hidden id="start">Start camera</button>
-            <button hidden id="action">Start audio</button>
             <button id="record" disabled>Start Recording</button>
             <button id="play" disabled>Play</button>
             <button id="download" disabled>Download</button>
@@ -51,7 +50,6 @@
     <!-- include adapter for srcObject shim -->
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
     <script src="js/main.js" async></script>
-    <script src="js/audio.js" async></script>
     <script src="../../../js/lib/ga.js"></script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
