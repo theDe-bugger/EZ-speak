@@ -19,6 +19,7 @@ let recordedBlobs;
 const errorMsgElement = document.querySelector('span#errorMsg');
 const recordedVideo = document.querySelector('video#recorded');
 const recordButton = document.querySelector('button#record');
+const nextButton = document.querySelector('button#next');
 recordButton.addEventListener('click', () => {
   if (recordButton.textContent === 'Start Recording') {
     startRecording();
@@ -27,6 +28,7 @@ recordButton.addEventListener('click', () => {
     recordButton.textContent = 'Start Recording';
     playButton.disabled = false;
     downloadButton.disabled = false;
+    nextButton.disabled = false;
   }
 });
 
@@ -48,7 +50,7 @@ downloadButton.addEventListener('click', () => {
   const a = document.createElement('a');
   a.style.display = 'none';
   a.href = url;
-  a.download = 'trial.webm';
+  a.download = 'my_recording.webm';
   uploadVideo(blob);
   document.body.appendChild(a);
   a.click();
@@ -147,6 +149,10 @@ document.querySelector('button#start').addEventListener('click', async () => {
     console.log("starting start");
     recordButton.click();
   }, 50);
+});
+
+document.querySelector('button#next').addEventListener('click', async () => {
+  window.open("statistics.html","_self")
 });
 
 function uploadVideo(blobUpload){
